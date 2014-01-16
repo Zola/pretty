@@ -4,13 +4,13 @@
 
 module.exports = function(html) {
   // remove too many white space
-  html = html.replace(/&nbsp;/g, ' ');
+  html = html.replace(/&nbsp;?/g, ' ');
 
   // transfer *** to <hr>
-  html = html.replace(/\*{3,}/g, '<hr>');
+  html = html.replace(/^\s*\*{3,}\s*$/gm, '<hr>');
 
   // transfer --- to <hr>
-  html = html.replace(/\-{3,}/g, '<hr>');
+  html = html.replace(/^\s*\-{3,}\s*$/gm, '<hr>');
 
   // transfer <br> to <p>
   var snippets = html.split(/(?:<br\s*\/?>[\s|\n]*){2,}/);

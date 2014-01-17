@@ -12,6 +12,9 @@ module.exports = function(html) {
   // transfer --- to <hr>
   html = html.replace(/^\s*\-{3,}\s*$/gm, '<hr>');
 
+  // transfer -- to ——
+  html = html.replace(/([^-])(--)([^-])/g, '$1——$3');
+
   // transfer <br> to <p>
   var snippets = html.split(/(?:<br\s*\/?>[\s|\n]*){2,}/);
   html = '';

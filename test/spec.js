@@ -27,6 +27,11 @@ describe('pretty', function() {
     assert(pretty(text), '<p>foo\n<hr></p>');
   });
 
+  it('should transfer minus to dash', function() {
+    var text = 'foo -- bar';
+    assert(pretty(text), '<p>foo —— bar</p>');
+  });
+
   it('should remove too many br', function() {
     var text = 'foo<br><br>bar';
     assert(pretty(text), '<p>foo</p><p>bar</p>');

@@ -16,15 +16,25 @@ describe('pretty', function() {
   it('should transform --- to hr', function() {
     var text = 'foo ---';
     assert(pretty(text), '<p>foo ---</p>');
+
+    var expect = '<p>foo\n<hr></p>';
     text = 'foo\n ---';
-    assert(pretty(text), '<p>foo\n<hr></p>');
+    assert(pretty(text), expect);
+
+    text = 'foo\n - - -';
+    assert(pretty(text), expect);
   });
 
   it('should transform *** to hr', function() {
     var text = 'foo ***';
     assert(pretty(text), '<p>foo ***</p>');
+
+    var expect = '<p>foo\n<hr></p>';
     text = 'foo\n ***';
-    assert(pretty(text), '<p>foo\n<hr></p>');
+    assert(pretty(text), expect);
+
+    text = 'foo\n * * *';
+    assert(pretty(text), expect);
   });
 
   it('should transfer minus to dash', function() {

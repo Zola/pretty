@@ -7,10 +7,10 @@ module.exports = function(html) {
   html = html.replace(/&nbsp;?/g, ' ');
 
   // transfer *** to <hr>
-  html = html.replace(/^\s*\*{3,}\s*$/gm, '<hr>');
+  html = html.replace(/^\s*(?:\*\s*){3,}\s*$/gm, '<hr>');
 
   // transfer --- to <hr>
-  html = html.replace(/^\s*\-{3,}\s*$/gm, '<hr>');
+  html = html.replace(/^\s*(?:\-\s*){3,}\s*$/gm, '<hr>');
 
   // transfer -- to ——
   html = html.replace(/([^-])(--)([^-])/g, '$1——$3');

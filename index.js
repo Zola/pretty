@@ -14,7 +14,7 @@ module.exports = function(html) {
 
   // merge <hr><br>
   html = html.replace(
-    /(?:<br\s*\/?>\s*)*<hr\s*\/?>\s*(?:<br\s*\/?>\s*)+/, '<hr>'
+    /(?:<br\s*\/?>\s*)*<hr\s*\/?>\s*(?:<br\s*\/?>\s*)+/g, '<hr>'
   );
 
   // transfer -- to ——

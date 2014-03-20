@@ -12,6 +12,11 @@ module.exports = function(html) {
   html = html.replace(/<p>(?:(?:\*|\-|—)\s*){3,}</g, '<p><hr><');
   html = html.replace(/<br\s*\/?>(?:(?:\*|\-|—)\s*){3,}</g, '<hr><');
 
+  // merge <hr><br>
+  html = html.replace(
+    /(?:<br\s*\/?>\s*)*<hr\s*\/?>\s*(?:<br\s*\/?>\s*)+/, '<hr>'
+  );
+
   // transfer -- to ——
   html = html.replace(/([^-])(--)([^-])/g, '$1——$3');
 

@@ -39,7 +39,7 @@ describe('pretty', function() {
 
   it('should transform to hr', function() {
     var text = '<br>———————————————————————<br>';
-    var expect = '<hr><br>';
+    var expect = '<hr>';
     assert(pretty(text), expect);
   });
 

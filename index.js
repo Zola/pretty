@@ -12,10 +12,20 @@ module.exports = function(html) {
   html = html.replace(/<p>(?:(?:\*|\-|—)\s*){3,}</g, '<p><hr><');
   html = html.replace(/<br\s*\/?>(?:(?:\*|\-|—)\s*){3,}</g, '<hr><');
 
+  // clean span wrapper for ---
+  html = html.replace(
+    /<(strong|b|i|em)>(?:(?:\*|\-|—)\s*){3,}<\/(\1)>/g,
+    '<hr>'
+  );
+
   // merge <hr><br>
   html = html.replace(
     /(?:<br\s*\/?>\s*)*<hr\s*\/?>\s*(?:<br\s*\/?>\s*)+/g, '<hr>'
   );
+
+  // merge <p><hr></p>
+  html = html.replace(/<p>*<hr\s*\/?>\s*<\/p>/g, '<hr>');
+
 
   // transfer -- to ——
   html = html.replace(/([^-])(--)([^-])/g, '$1——$3');

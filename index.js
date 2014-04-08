@@ -28,7 +28,7 @@ module.exports = function(html) {
 
 
   // transfer -- to ——
-  html = html.replace(/([^-])(--)([^-])/g, '$1——$3');
+  html = html.replace(/(?!<\w+\s+)([^-])(--)([^-])(?!.*>)/g, '$1——$3');
 
   // transfer <br> to <p>
   var snippets = html.split(/(?:<br\s*\/?>[\s|\n]*){2,}/);

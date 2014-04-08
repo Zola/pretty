@@ -52,4 +52,9 @@ describe('pretty', function() {
     var text = 'foo<br><br>bar';
     assert(pretty(text), '<p>foo</p><p>bar</p>');
   });
+
+  it("doesn't transform anything in attribute", function() {
+    var text = 'foo <a href="--">';
+    assert(pretty(text), text);
+  });
 });
